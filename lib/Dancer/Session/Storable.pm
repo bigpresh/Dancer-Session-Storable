@@ -3,10 +3,13 @@ package Dancer::Session::Storable;
 use strict;
 use warnings;
 use base 'Dancer::Session::Abstract';
+use vars qw($VERSION);
 
 use Dancer::ModuleLoader;
 use Dancer::Config 'setting';
 use Dancer::FileUtils 'path';
+
+$VERSION = '0.01';
 
 # static
 
