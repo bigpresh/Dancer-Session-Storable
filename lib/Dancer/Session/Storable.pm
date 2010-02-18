@@ -79,8 +79,8 @@ Dancer::Session::Storable - Storable-file-based session backend for Dancer
 
 =head1 DESCRIPTION
 
-This module implements a session engine by using Storable to serialise data into
-files.  Session are stored in a I<session_dir> as Storable files. 
+This module implements a session engine by using L<Storable> to serialise data into
+files.  Sessions are stored in a I<session_dir> as Storable files. 
  
 Storable offers solid performance and reliable serialisation of various data
 structures.
@@ -99,8 +99,8 @@ value is C<appdir/sessions>.
 Here is an example configuration that use this session engine and stores session
 files in /tmp/dancer-sessions
 
-    session: "Storable"
-    session_dir: "/tmp/dancer-sessions"
+    session: Storable
+    session_dir: /tmp/dancer-sessions
 
 =head1 DEPENDENCY
 
