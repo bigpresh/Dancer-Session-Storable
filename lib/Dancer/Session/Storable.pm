@@ -9,12 +9,14 @@ use Dancer::ModuleLoader;
 use Dancer::Config 'setting';
 use Dancer::FileUtils 'path';
 
-$VERSION = '0.01';
+$VERSION = '0.02';
 
 # static
 
 sub init {
     my ($class) = @_;
+
+    $class->SUPER::init(@_);
 
     die "Storable is needed and is not installed"
       unless Dancer::ModuleLoader->load('Storable');
@@ -110,15 +112,20 @@ This module depends on L<Storable>.
 
 David Precious, <davidp@preshweb.co.uk>
 
+=head1 ACKNOWLEDGEMENTS
+
+Alessandro Ranellucci
+
 
 =head1 SEE ALSO
 
 See L<Dancer::Session> for details about session usage in route handlers, and
-L<Dancer> for general information on the Dancer web framework.
+L<Dancer> for general information on the Dancer web framework.  See L<Storable>
+for details on how the Storable serialiser works.
 
 =head1 COPYRIGHT
 
-This module is copyright (c) 2010 David Precious <davidp@preshweb.co.uk>
+This module is copyright (c) 2010-2011 David Precious <davidp@preshweb.co.uk>
 
 =head1 LICENSE
 

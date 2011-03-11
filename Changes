@@ -1,5 +1,10 @@
 Revision history for Dancer-Session-Storable
 
+0.02    2011-03-11
+        Bugfix: call SUPER::init() first, to initialise session engine
+        appropriately.  Thanks to Alessandro Ranellucci ("Sound" on IRC) for
+        this.
+
 0.01    2010-02-18
         First version released.
 
