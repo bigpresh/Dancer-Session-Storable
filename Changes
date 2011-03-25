@@ -1,5 +1,13 @@
 Revision history for Dancer-Session-Storable
 
+0.03    2011-03-25
+        Use the session_name (e.g. dancer.session, or the value of the
+        session_name config setting) for the session filename.  NOTE: this is
+        mildly backwards-incompatible, in that upgrading will mean that existing
+        sessions will not be recognised.
+        Resolves GH #1, thanks to alexrj
+        Minor bugfix: call $self->id, not $self->{id}, thanks Puneet Kishor
+
 0.02    2011-03-11
         Bugfix: call SUPER::init() first, to initialise session engine
         appropriately.  Thanks to Alessandro Ranellucci ("Sound" on IRC) for
