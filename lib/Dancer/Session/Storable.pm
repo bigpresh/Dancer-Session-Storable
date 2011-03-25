@@ -66,7 +66,7 @@ sub destroy {
 
 sub flush {
     my $self = shift;
-    Storable::nstore($self, session_file($self->{id}));
+    Storable::nstore($self, session_file($self->id));
     return $self;
 }
 
