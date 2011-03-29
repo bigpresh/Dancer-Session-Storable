@@ -9,7 +9,7 @@ use Dancer::ModuleLoader;
 use Dancer::Config 'setting';
 use Dancer::FileUtils 'path';
 
-$VERSION = '0.03';
+$VERSION = '0.04';
 
 # static
 
