@@ -48,28 +48,29 @@ sub create {
 sub retrieve {
     my ($class, $id) = @_;
 
-    return undef unless -f session_file($id);
-    return Storable::retrieve(session_file($id));
+    return undef unless -f $class->session_file($id);
+    return Storable::retrieve($class->session_file($id));
 }
 
 # instance
 
 sub session_file {
-    my ($id) = @_;
+    my ($class,$id) = @_;
     return path(
         setting('session_dir'), 
-        setting('session_name') . "_$id.stor"
+        $class->session_name . "_$id.stor"
     );
 }
 
 sub destroy {
     my ($self) = @_;
-    unlink session_file($self->id) if -f session_file($self->id);
+    unlink $self->session_file($self->id) 
+        if -f $self->session_file($self->id);
 }
 
 sub flush {
     my $self = shift;
-    Storable::nstore($self, session_file($self->id));
+    Storable::nstore($self, $self->session_file($self->id));
     return $self;
 }
 
