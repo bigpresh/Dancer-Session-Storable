@@ -1,5 +1,10 @@
 Revision history for Dancer-Session-Storable
 
+0.05    2011-10-07
+        Use lock_nstore and lock_retrieve to avoid problems with multiple
+        processes trying to read the session at the same time.
+        Reported by onelesd in Issue 672 @ sukria/Dancer on GitHub - thanks!
+
 0.04    2011-03-29
         Use $class->session_name to retrieve the session, for a safe default
         session name if sessin_name hasn't been configured.  Thanks to alexrj.

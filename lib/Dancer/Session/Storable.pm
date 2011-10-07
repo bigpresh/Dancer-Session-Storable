@@ -9,7 +9,7 @@ use Dancer::ModuleLoader;
 use Dancer::Config 'setting';
 use Dancer::FileUtils 'path';
 
-$VERSION = '0.04';
+$VERSION = '0.05';
 
 # static
 
@@ -49,7 +49,7 @@ sub retrieve {
     my ($class, $id) = @_;
 
     return undef unless -f $class->session_file($id);
-    return Storable::retrieve($class->session_file($id));
+    return Storable::lock_retrieve($class->session_file($id));
 }
 
 # instance
@@ -70,7 +70,7 @@ sub destroy {
 
 sub flush {
     my $self = shift;
-    Storable::nstore($self, $self->session_file($self->id));
+    Storable::lock_nstore($self, $self->session_file($self->id));
     return $self;
 }
 
@@ -119,6 +119,8 @@ David Precious, <davidp@preshweb.co.uk>
 =head1 ACKNOWLEDGEMENTS
 
 Alessandro Ranellucci
+
+onelesd
 
 
 =head1 SEE ALSO
