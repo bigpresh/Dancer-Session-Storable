@@ -9,7 +9,7 @@ use Dancer::ModuleLoader;
 use Dancer::Config 'setting';
 use Dancer::FileUtils 'path';
 
-$VERSION = '0.05';
+$VERSION = '0.06';
 
 # static
 
@@ -31,7 +31,9 @@ sub init {
         mkdir $session_dir
           or die "session_dir $session_dir cannot be created";
     }
-    Dancer::Logger->debug("session_dir : $session_dir");
+    Dancer::Logger::core(
+        __PACKAGE__ . " using session_dir : $session_dir"
+    );
 }
 
 # create a new session and return the newborn object
