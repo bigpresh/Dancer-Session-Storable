@@ -1,5 +1,8 @@
 Revision history for Dancer-Session-Storable
 
+0.06    2012-11-26
+        Fix log message on startup, thanks to Vernon (VLYON) in RT #81464
+
 0.05    2011-10-07
         Use lock_nstore and lock_retrieve to avoid problems with multiple
         processes trying to read the session at the same time.
